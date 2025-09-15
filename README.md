@@ -2,6 +2,8 @@
 
 A powerful Chrome extension for searching and highlighting multiple terms simultaneously on any webpage. Color-coded results make it easy to track multiple items at once.
 
+![Multi-Search in action](screenshots/screenshot3_promo_marquee.png)
+
 ## Features
 
 - **Multi-Color Highlighting**: Search multiple terms at once, each with a unique color (up to 8 colors)
@@ -40,6 +42,9 @@ For detailed instructions with screenshots, see [INSTALL.md](INSTALL.md).
 ## How to Use
 
 ### Basic Usage
+
+![Extension Popup](screenshots/screenshot1_screenshot_large.png)
+
 1. Click the extension icon in your toolbar (or press `Ctrl+Shift+F`)
 2. Enter search terms (comma or newline separated)
 3. Select search mode:
@@ -48,6 +53,10 @@ For detailed instructions with screenshots, see [INSTALL.md](INSTALL.md).
    - **URL IDs** for finding numeric IDs in URLs
 4. Click "Search"
 5. Navigate matches with Tab/Shift+Tab
+
+### Example Result
+
+![Highlighted Results on Wikipedia](screenshots/screenshot3_screenshot_large.png)
 
 ### Keyboard Shortcuts
 - **Ctrl+Shift+F** (Cmd+Shift+F on Mac): Open search panel
