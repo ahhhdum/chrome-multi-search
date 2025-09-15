@@ -21,11 +21,13 @@ A powerful Chrome extension for searching and highlighting multiple terms simult
 ## Installation
 
 ### Quick Install (Recommended)
-1. **[Download the extension ZIP file](dist/chrome-multi-search.zip)** (click to download)
+**→ [Download Extension ZIP](https://github.com/ahhhdum/chrome-multi-search/raw/main/dist/chrome-multi-search.zip)** *(Right-click → Save Link As)*
+
+1. Download the ZIP file using the link above
 2. Open Chrome and go to `chrome://extensions`
 3. Enable "Developer mode" (toggle in top right)
-4. Drag and drop the downloaded `chrome-multi-search.zip` file onto the extensions page
-5. The extension will install automatically!
+4. Drag the downloaded ZIP file onto the Chrome extensions page
+5. Done! Click the extension icon in your toolbar to start searching
 
 ### From Chrome Web Store
 Coming soon! (Pending review)
