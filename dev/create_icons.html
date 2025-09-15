@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .canvas { display: none; }
+</style>
+</head>
+<body>
+<canvas id="c16" class="canvas" width="16" height="16"></canvas>
+<canvas id="c48" class="canvas" width="48" height="48"></canvas>
+<canvas id="c128" class="canvas" width="128" height="128"></canvas>
+
+<script>
+function createIcon(size) {
+  const canvas = document.getElementById('c' + size);
+  const ctx = canvas.getContext('2d');
+  
+  // Green background
+  ctx.fillStyle = '#4CAF50';
+  ctx.fillRect(0, 0, size, size);
+  
+  // White magnifying glass
+  ctx.strokeStyle = 'white';
+  ctx.lineWidth = Math.max(1.5, size / 16);
+  
+  // Lens circle
+  const centerX = size / 2 - size / 8;
+  const centerY = size / 2 - size / 8;
+  const radius = size / 4;
+  
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.stroke();
+  
+  // Handle
+  ctx.beginPath();
+  ctx.moveTo(centerX + radius * 0.7, centerY + radius * 0.7);
+  ctx.lineTo(size - size / 8, size - size / 8);
+  ctx.stroke();
+  
+  // Convert to data URL
+  return canvas.toDataURL('image/png');
+}
+
+// Create all icons
+const icon16 = createIcon(16);
+const icon48 = createIcon(48);
+const icon128 = createIcon(128);
+
+// Output as base64 for manual creation
+console.log('Icon 16:', icon16);
+console.log('Icon 48:', icon48);
+console.log('Icon 128:', icon128);
+
+// Instructions
+console.log('\nTo save: Right-click each canvas above and save as icon16.png, icon48.png, icon128.png');
+</script>
+
+<p>Open this HTML file in a browser, open console, and use the base64 data URLs or save the canvases.</p>
+</body>
+</html>

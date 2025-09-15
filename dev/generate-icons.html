@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Icon Generator</title>
+</head>
+<body>
+  <h2>Multi-Search Extension Icons</h2>
+  <p>Right-click and save each icon to the icons/ folder:</p>
+
+  <!-- 16x16 -->
+  <h3>icon16.png (16x16)</h3>
+  <canvas id="icon16" width="16" height="16"></canvas>
+
+  <!-- 48x48 -->
+  <h3>icon48.png (48x48)</h3>
+  <canvas id="icon48" width="48" height="48"></canvas>
+
+  <!-- 128x128 -->
+  <h3>icon128.png (128x128)</h3>
+  <canvas id="icon128" width="128" height="128"></canvas>
+
+  <script>
+    // Simple icon drawing function
+    function drawIcon(canvasId, size) {
+      const canvas = document.getElementById(canvasId);
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      ctx.fillStyle = '#4CAF50';
+      ctx.beginPath();
+      ctx.arc(size/2, size/2, size/2 - 1, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Scale for different sizes
+      const scale = size / 128;
+      ctx.save();
+      ctx.scale(scale, scale);
+
+      // Draw magnifying glass
+      ctx.strokeStyle = 'white';
+      ctx.lineWidth = 5;
+
+      // Main lens
+      ctx.beginPath();
+      ctx.arc(54, 54, 22, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Multiple layers effect (only for larger icons)
+      if (size > 16) {
+        ctx.globalAlpha = 0.5;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(58, 58, 22, 0, Math.PI * 2);
+        ctx.stroke();
+
+        ctx.globalAlpha = 0.3;
+        ctx.beginPath();
+        ctx.arc(62, 62, 22, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // Handle
+      ctx.globalAlpha = 1;
+      ctx.lineWidth = 5;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(72, 72);
+      ctx.lineTo(89, 89);
+      ctx.stroke();
+
+      ctx.restore();
+    }
+
+    // Generate all icons
+    drawIcon('icon16', 16);
+    drawIcon('icon48', 48);
+    drawIcon('icon128', 128);
+  </script>
+</body>
+</html>

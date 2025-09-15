@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Styles Mockup - Multi-Search Extension</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 2;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .light-section {
+            background: #ffffff;
+            color: #333;
+        }
+
+        .dark-section {
+            background: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        .dark-section h2 {
+            color: #fff;
+        }
+
+        h2 {
+            margin-top: 0;
+            border-bottom: 2px solid currentColor;
+            padding-bottom: 10px;
+            opacity: 0.8;
+        }
+
+        .sample-text {
+            font-size: 16px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 4px;
+        }
+
+        .dark-section .sample-text {
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Base highlight styles (simulating the 8 colors) */
+        .highlight-yellow { background-color: #ffeb3b; border-radius: 2px; color: #212121; }
+        .highlight-green { background-color: #4caf50; border-radius: 2px; color: #fff; }
+        .highlight-orange { background-color: #ff9800; border-radius: 2px; }
+        .highlight-blue { background-color: #03a9f4; border-radius: 2px; color: #fff; }
+        .highlight-pink { background-color: #e91e63; border-radius: 2px; color: #fff; }
+        .highlight-purple { background-color: #9c27b0; border-radius: 2px; color: #fff; }
+        .highlight-cyan { background-color: #00bcd4; border-radius: 2px; color: #212121; }
+        .highlight-lightgreen { background-color: #8bc34a; border-radius: 2px; color: #212121; }
+
+        /* CURRENT FOCUS STYLE (from extension) */
+        .focus-current {
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.5), 0 0 10px rgba(255, 0, 0, 0.3);
+        }
+
+        /* FOCUS STYLE OPTIONS */
+
+        /* Style 1: Thick Border */
+        .focus-border {
+            border: 3px solid #FF0000 !important;
+            margin: -3px;
+        }
+
+        /* Style 2: Animated Pulse */
+        @keyframes pulse-focus {
+            0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            50% { box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+        .focus-pulse {
+            animation: pulse-focus 1.5s infinite;
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.7);
+        }
+
+        /* Style 3: Double Ring */
+        .focus-double-ring {
+            box-shadow:
+                0 0 0 2px #fff,
+                0 0 0 4px #FF0000,
+                0 0 0 6px #fff,
+                0 0 0 8px #FF0000;
+        }
+
+        /* Style 4: Underline + Overline */
+        .focus-lines {
+            border-top: 3px solid #FF0000 !important;
+            border-bottom: 3px solid #FF0000 !important;
+            padding: 2px 0;
+            margin: -2px 0;
+        }
+
+        /* Style 5: Corner Brackets */
+        .focus-brackets {
+            position: relative;
+        }
+        .focus-brackets::before,
+        .focus-brackets::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 3px solid #FF0000;
+        }
+        .focus-brackets::before {
+            top: -5px;
+            left: -5px;
+            border-right: none;
+            border-bottom: none;
+        }
+        .focus-brackets::after {
+            bottom: -5px;
+            right: -5px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Style 6: Neon Glow */
+        .focus-neon {
+            box-shadow:
+                0 0 5px #FF0000,
+                0 0 10px #FF0000,
+                0 0 15px #FF0000,
+                0 0 20px #FF0000,
+                inset 0 0 5px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Style 7: Animated Border */
+        @keyframes border-dance {
+            0% { border-color: #FF0000; }
+            25% { border-color: #FF6B6B; }
+            50% { border-color: #FFD93D; }
+            75% { border-color: #FF6B6B; }
+            100% { border-color: #FF0000; }
+        }
+        .focus-animated-border {
+            border: 3px solid #FF0000;
+            animation: border-dance 2s infinite;
+            margin: -3px;
+        }
+
+        /* Style 8: Arrow Indicator */
+        .focus-arrow {
+            position: relative;
+        }
+        .focus-arrow::before {
+            content: '▶';
+            position: absolute;
+            left: -20px;
+            color: #FF0000;
+            font-size: 16px;
+            animation: arrow-bounce 1s infinite;
+        }
+        @keyframes arrow-bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* Style 9: Dotted Outline */
+        .focus-dotted {
+            outline: 3px dotted #FF0000;
+            outline-offset: 2px;
+        }
+
+        /* Style 10: Gradient Border */
+        .focus-gradient {
+            position: relative;
+            z-index: 1;
+        }
+        .focus-gradient::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(45deg, #FF0000, #FFD93D, #FF0000);
+            border-radius: 4px;
+            z-index: -1;
+            animation: gradient-shift 3s ease infinite;
+        }
+        @keyframes gradient-shift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Style 11: Ripple Effect */
+        @keyframes ripple {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7),
+                           0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0),
+                           0 0 0 20px rgba(255, 0, 0, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 10px rgba(255, 0, 0, 0),
+                           0 0 0 20px rgba(255, 0, 0, 0);
+            }
+        }
+        .focus-ripple {
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.7);
+            animation: ripple 2s infinite;
+        }
+
+        /* Style 12: Highlight + Icon */
+        .focus-icon {
+            position: relative;
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.5);
+        }
+        .focus-icon::after {
+            content: '👁';
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            animation: icon-float 2s ease-in-out infinite;
+        }
+        @keyframes icon-float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Customization controls */
+        .controls {
+            position: sticky;
+            top: 20px;
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .control-group {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .control-group label {
+            width: 150px;
+            font-weight: bold;
+        }
+
+        .control-group select,
+        .control-group input {
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .style-card {
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .dark-section .style-card {
+            background: rgba(0,0,0,0.3);
+            border-color: #555;
+        }
+
+        .style-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FF0000;
+        }
+
+        code {
+            background: rgba(0,0,0,0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        .navigation-hint {
+            background: #FFE082;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid #FFA000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Focus Indicator Styles Mockup</h1>
+
+        <div class="navigation-hint">
+            <strong>💡 Context:</strong> When users press Tab/Shift+Tab to navigate between search matches,
+            we need a clear visual indicator showing which match is currently focused. The current red glow
+            might not be visible enough on all backgrounds.
+        </div>
+
+        <div class="controls">
+            <h3>Interactive Controls (Future Implementation)</h3>
+            <div class="control-group">
+                <label>Focus Style:</label>
+                <select id="focusStyle">
+                    <option>Current (Red Glow)</option>
+                    <option>Thick Border</option>
+                    <option>Animated Pulse</option>
+                    <option>Double Ring</option>
+                    <option>Underline/Overline</option>
+                    <option>Corner Brackets</option>
+                    <option>Neon Glow</option>
+                    <option>Animated Border</option>
+                    <option>Arrow Indicator</option>
+                    <option>Dotted Outline</option>
+                    <option>Gradient Border</option>
+                    <option>Ripple Effect</option>
+                    <option>Icon Indicator</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Focus Color:</label>
+                <input type="color" value="#FF0000" id="focusColor">
+            </div>
+            <div class="control-group">
+                <label>Animation Speed:</label>
+                <input type="range" min="0.5" max="3" step="0.5" value="1.5">
+                <span>1.5s</span>
+            </div>
+            <div class="control-group">
+                <label>Thickness:</label>
+                <input type="range" min="1" max="5" step="1" value="3">
+                <span>3px</span>
+            </div>
+        </div>
+
+        <!-- Light Background Section -->
+        <div class="section light-section">
+            <h2>Light Background Examples</h2>
+
+            <div class="sample-text">
+                <p>Search results: The <span class="highlight-yellow">quick brown</span> fox jumps over the
+                <span class="highlight-green focus-current">lazy dog</span> (current focus style) and runs through
+                the <span class="highlight-orange">forest path</span> during the <span class="highlight-blue">early morning</span>.</p>
+            </div>
+
+            <div class="style-grid">
+                <div class="style-card">
+                    <div class="style-name">1. Thick Border</div>
+                    <p>The <span class="highlight-yellow focus-border">focused match</span> stands out with a solid border.</p>
+                    <code>border: 3px solid red</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">2. Animated Pulse</div>
+                    <p>The <span class="highlight-green focus-pulse">focused match</span> pulses to draw attention.</p>
+                    <code>animation: pulse 1.5s</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">3. Double Ring</div>
+                    <p>The <span class="highlight-orange focus-double-ring">focused match</span> has multiple rings.</p>
+                    <code>box-shadow: multiple</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">4. Lines Above/Below</div>
+                    <p>The <span class="highlight-blue focus-lines">focused match</span> has lines.</p>
+                    <code>border-top/bottom</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">5. Corner Brackets</div>
+                    <p>The <span class="highlight-pink focus-brackets">focused match</span> has corner marks.</p>
+                    <code>::before/::after</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">6. Neon Glow</div>
+                    <p>The <span class="highlight-purple focus-neon">focused match</span> glows brightly.</p>
+                    <code>multiple shadows</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dark Background Section -->
+        <div class="section dark-section">
+            <h2>Dark Background Examples</h2>
+
+            <div class="sample-text">
+                <p>Search results: The <span class="highlight-yellow">quick brown</span> fox jumps over the
+                <span class="highlight-green focus-current">lazy dog</span> (current focus style) and runs through
+                the <span class="highlight-orange">forest path</span> during the <span class="highlight-blue">early morning</span>.</p>
+            </div>
+
+            <div class="style-grid">
+                <div class="style-card">
+                    <div class="style-name">7. Animated Border</div>
+                    <p>The <span class="highlight-cyan focus-animated-border">focused match</span> has a color-changing border.</p>
+                    <code>animation: border-dance</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">8. Arrow Indicator</div>
+                    <p>The <span class="highlight-lightgreen focus-arrow">focused match</span> has an arrow pointing to it.</p>
+                    <code>::before with arrow</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">9. Dotted Outline</div>
+                    <p>The <span class="highlight-yellow focus-dotted">focused match</span> has a dotted outline.</p>
+                    <code>outline: dotted</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">10. Gradient Border</div>
+                    <p>The <span class="highlight-green focus-gradient">focused match</span> has an animated gradient.</p>
+                    <code>gradient + animation</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">11. Ripple Effect</div>
+                    <p>The <span class="highlight-orange focus-ripple">focused match</span> sends out ripples.</p>
+                    <code>expanding shadows</code>
+                </div>
+
+                <div class="style-card">
+                    <div class="style-name">12. Icon Indicator</div>
+                    <p>The <span class="highlight-blue focus-icon">focused match</span> shows an icon above.</p>
+                    <code>::after with emoji</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div class="section light-section">
+            <h2>Side-by-Side Comparison</h2>
+
+            <h3>All Focus Styles on Yellow Highlight</h3>
+            <div class="style-grid">
+                <div>Current: <span class="highlight-yellow focus-current">focused text</span></div>
+                <div>Border: <span class="highlight-yellow focus-border">focused text</span></div>
+                <div>Pulse: <span class="highlight-yellow focus-pulse">focused text</span></div>
+                <div>Double: <span class="highlight-yellow focus-double-ring">focused text</span></div>
+                <div>Lines: <span class="highlight-yellow focus-lines">focused text</span></div>
+                <div>Brackets: <span class="highlight-yellow focus-brackets">focused text</span></div>
+                <div>Neon: <span class="highlight-yellow focus-neon">focused text</span></div>
+                <div>Animated: <span class="highlight-yellow focus-animated-border">focused text</span></div>
+                <div>Arrow: <span class="highlight-yellow focus-arrow">focused text</span></div>
+                <div>Dotted: <span class="highlight-yellow focus-dotted">focused text</span></div>
+                <div>Gradient: <span class="highlight-yellow focus-gradient">focused text</span></div>
+                <div>Ripple: <span class="highlight-yellow focus-ripple">focused text</span></div>
+            </div>
+        </div>
+
+        <!-- Implementation Notes -->
+        <div class="section light-section">
+            <h2>Implementation Recommendations</h2>
+
+            <h3>Top Picks for Best Visibility:</h3>
+            <ol>
+                <li><strong>Animated Pulse</strong> - Draws attention without being too distracting</li>
+                <li><strong>Double Ring</strong> - Very clear on all backgrounds</li>
+                <li><strong>Thick Border</strong> - Simple and effective</li>
+                <li><strong>Neon Glow</strong> - High visibility, especially on dark backgrounds</li>
+            </ol>
+
+            <h3>Customization Options to Add:</h3>
+            <ul>
+                <li>Focus indicator style (dropdown with presets)</li>
+                <li>Focus color picker (default red, but customizable)</li>
+                <li>Animation on/off toggle</li>
+                <li>Border/outline thickness (1-5px)</li>
+                <li>Glow intensity slider</li>
+                <li>Optional sound on focus change</li>
+            </ul>
+
+            <h3>Technical Implementation:</h3>
+            <pre><code>// Store user preference
+chrome.storage.sync.set({
+    focusStyle: 'pulse',  // or 'border', 'double-ring', etc.
+    focusColor: '#FF0000',
+    focusThickness: 3,
+    focusAnimation: true
+});
+
+// Apply focus class based on preference
+element.classList.add('multi-search-focused');
+element.classList.add(`focus-style-${userPrefs.focusStyle}`);</code></pre>
+        </div>
+    </div>
+
+    <script>
+        // Future: Add interactivity to test different styles
+        document.getElementById('focusStyle')?.addEventListener('change', (e) => {
+            console.log('Style changed to:', e.target.value);
+            // Would update all examples to show selected style
+        });
+
+        document.getElementById('focusColor')?.addEventListener('input', (e) => {
+            console.log('Color changed to:', e.target.value);
+            // Would update CSS variable for focus color
+        });
+    </script>
+</body>
+</html>

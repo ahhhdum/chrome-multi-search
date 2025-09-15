@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Styles Mockup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.8;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .style-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .sample-text {
+            font-size: 16px;
+            margin: 15px 0;
+            padding: 10px;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+
+        /* Current Style */
+        .highlight-current {
+            background-color: #ffeb3b;
+            border-radius: 2px;
+        }
+
+        /* Style 1: Border Only */
+        .highlight-border {
+            border: 2px solid #ffeb3b;
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        /* Style 2: Underline */
+        .highlight-underline {
+            border-bottom: 3px solid #ffeb3b;
+            background: rgba(255, 235, 59, 0.2);
+        }
+
+        /* Style 3: Box Shadow Glow */
+        .highlight-glow {
+            background-color: #ffeb3b;
+            box-shadow: 0 0 8px rgba(255, 235, 59, 0.8);
+            border-radius: 2px;
+        }
+
+        /* Style 4: Outline */
+        .highlight-outline {
+            outline: 2px solid #ffeb3b;
+            outline-offset: 1px;
+            background: rgba(255, 235, 59, 0.3);
+        }
+
+        /* Style 5: Bold Background */
+        .highlight-bold {
+            background-color: #ffeb3b;
+            border: 1px solid #f9a825;
+            border-radius: 3px;
+            padding: 1px 3px;
+            font-weight: 500;
+        }
+
+        /* Style 6: Strikethrough/Highlight Combo */
+        .highlight-strike {
+            background: linear-gradient(to right, transparent 0%, #ffeb3b 10%, #ffeb3b 90%, transparent 100%);
+            padding: 0 4px;
+        }
+
+        /* Style 7: Animated Pulse */
+        @keyframes pulse {
+            0% { background-color: #ffeb3b; }
+            50% { background-color: #fff59d; }
+            100% { background-color: #ffeb3b; }
+        }
+        .highlight-pulse {
+            background-color: #ffeb3b;
+            animation: pulse 2s infinite;
+            border-radius: 2px;
+        }
+
+        /* Style 8: Double Border */
+        .highlight-double {
+            border: 1px solid #ffeb3b;
+            box-shadow: 0 0 0 3px rgba(255, 235, 59, 0.3);
+            border-radius: 2px;
+            padding: 0 2px;
+        }
+
+        /* Customization Controls Mock */
+        .controls {
+            background: #2196F3;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .control-group {
+            margin: 15px 0;
+        }
+        .control-group label {
+            display: inline-block;
+            width: 150px;
+            font-weight: bold;
+        }
+        .control-group input[type="range"] {
+            width: 200px;
+        }
+        .control-group select {
+            padding: 5px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        /* Color variations */
+        .green-theme {
+            --highlight-color: #4caf50;
+        }
+        .blue-theme {
+            --highlight-color: #2196F3;
+        }
+        .purple-theme {
+            --highlight-color: #9c27b0;
+        }
+
+        .settings-mockup {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .preview-box {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 10px 0;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Multi-Search Highlight Styles Mockup</h1>
+
+        <div class="style-section">
+            <h2>Current Style (Simple Background)</h2>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-current">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Pros:</strong> Simple, clear, good visibility</p>
+            <p><strong>Cons:</strong> Can blend with page colors, might not stand out enough</p>
+        </div>
+
+        <div class="style-section">
+            <h2>Style Options for Better Visibility</h2>
+
+            <h3>1. Border Only</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-border">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Minimal interference with text, preserves original colors</p>
+
+            <h3>2. Underline Style</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-underline">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Subtle highlighting, doesn't obscure text</p>
+
+            <h3>3. Glow Effect</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-glow">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> High visibility, attention-grabbing</p>
+
+            <h3>4. Outline Style</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-outline">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Clear boundaries, works on any background</p>
+
+            <h3>5. Bold Background</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-bold">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Strong emphasis, clear visibility</p>
+
+            <h3>6. Gradient Highlight</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-strike">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Unique style, less boxy appearance</p>
+
+            <h3>7. Animated Pulse</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-pulse">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Drawing attention, finding matches quickly</p>
+
+            <h3>8. Double Border</h3>
+            <div class="sample-text">
+                The quick brown fox jumps over the <span class="highlight-double">lazy dog</span> and runs through the forest.
+            </div>
+            <p><strong>Good for:</strong> Extra emphasis, professional look</p>
+        </div>
+
+        <div class="settings-mockup">
+            <h2>⚙️ Proposed Settings UI</h2>
+
+            <div class="setting-row">
+                <label>Highlight Style:</label>
+                <select>
+                    <option>Background (Default)</option>
+                    <option>Border Only</option>
+                    <option>Underline</option>
+                    <option>Glow Effect</option>
+                    <option>Outline</option>
+                    <option>Bold Background</option>
+                    <option>Gradient</option>
+                    <option>Animated Pulse</option>
+                    <option>Double Border</option>
+                </select>
+            </div>
+
+            <div class="setting-row">
+                <label>Border Width:</label>
+                <input type="range" min="1" max="5" value="2">
+                <span>2px</span>
+            </div>
+
+            <div class="setting-row">
+                <label>Opacity:</label>
+                <input type="range" min="20" max="100" value="100">
+                <span>100%</span>
+            </div>
+
+            <div class="setting-row">
+                <label>Border Radius:</label>
+                <input type="range" min="0" max="10" value="2">
+                <span>2px</span>
+            </div>
+
+            <div class="setting-row">
+                <label>Padding:</label>
+                <input type="range" min="0" max="5" value="1">
+                <span>1px</span>
+            </div>
+
+            <div class="setting-row">
+                <label>Animation:</label>
+                <input type="checkbox"> Enable pulse animation
+            </div>
+
+            <div class="setting-row">
+                <label>Shadow:</label>
+                <input type="checkbox" checked> Enable shadow/glow
+            </div>
+
+            <h3>Preview</h3>
+            <div class="preview-box">
+                Sample text with <span class="highlight-current">highlighted word</span> showing current settings.
+            </div>
+        </div>
+
+        <div class="style-section">
+            <h2>Customization Options to Implement</h2>
+            <ul>
+                <li><strong>Style Preset:</strong> Choose from predefined styles (Background, Border, Underline, Glow, etc.)</li>
+                <li><strong>Border Width:</strong> 1-5px for border/underline styles</li>
+                <li><strong>Opacity:</strong> 20-100% for background transparency</li>
+                <li><strong>Border Radius:</strong> 0-10px for rounded corners</li>
+                <li><strong>Padding:</strong> 0-5px extra space around text</li>
+                <li><strong>Animation:</strong> Toggle pulse effect for better visibility</li>
+                <li><strong>Shadow/Glow:</strong> Toggle and intensity control</li>
+                <li><strong>Bold Text:</strong> Make highlighted text bold</li>
+                <li><strong>Custom CSS:</strong> Advanced users can write custom CSS</li>
+            </ul>
+        </div>
+
+        <div class="style-section">
+            <h2>Implementation Plan</h2>
+            <ol>
+                <li><strong>Add settings to popup.html:</strong> Create a settings section with dropdowns and sliders</li>
+                <li><strong>Store preferences:</strong> Use chrome.storage.sync to save user preferences</li>
+                <li><strong>Apply styles dynamically:</strong> Modify highlight functions to use stored preferences</li>
+                <li><strong>Live preview:</strong> Show preview in popup as user changes settings</li>
+                <li><strong>Presets:</strong> Quick style presets for common use cases</li>
+                <li><strong>Per-site settings:</strong> Option to save different styles for different websites</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>

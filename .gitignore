@@ -1,0 +1,32 @@
+# Local/private files
+.local/
+.claude/
+
+# Build artifacts
+*.zip
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+*Zone.Identifier
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependencies (if added in future)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Chrome Store assets
+chrome-store-upload*.zip
+
+# Temporary files
+*.tmp
+*.bak
+*~
