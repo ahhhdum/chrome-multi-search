@@ -61,13 +61,15 @@ For detailed instructions with screenshots, see [INSTALL.md](INSTALL.md).
 ![Highlighted Results on Wikipedia](screenshots/screenshot3_screenshot_large.png)
 
 ### Keyboard Shortcuts
-- **Ctrl+Shift+F** (Cmd+Shift+F on Mac): Open search panel
+- **Alt+Shift+F**: Open search panel
+- **Alt+Shift+S**: Toggle highlight visibility
 - **Tab**: Next match
 - **Shift+Tab**: Previous match
 - **Enter**: Click focused link
 - **Space**: Toggle checkbox in row
 - **Escape**: Clear all highlights
-- **Ctrl+Shift+S**: Toggle highlight visibility
+
+**Note:** If shortcuts don't work, click the ⚙️ icon in the extension popup to configure them, or go to `chrome://extensions/shortcuts`
 
 ### Use Cases
 - **Research**: Track multiple topics or keywords in documents
@@ -124,6 +126,19 @@ This extension does not collect any user data. All searches are performed locall
 ## License
 
 MIT License - see LICENSE file for details
+
+## Troubleshooting
+
+### Keyboard Shortcuts Not Working?
+Chrome sometimes doesn't register keyboard shortcuts properly on first install. To fix:
+1. Click the ⚙️ icon in the extension popup, or
+2. Go directly to `chrome://extensions/shortcuts`
+3. Find "Multi-Highlight Search Tool"
+4. Click the pencil icon next to each shortcut
+5. Press your desired keys (e.g., Alt+Shift+F)
+6. Click OK
+
+The shortcuts should now work immediately.
 
 ## Support
 

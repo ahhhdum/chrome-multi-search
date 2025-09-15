@@ -51,6 +51,25 @@ h1 {
   border-color: #4CAF50;
 }
 
+.shortcuts-config {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: white;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: 8px;
+}
+
+.shortcuts-config:hover {
+  background: #2196F3;
+  color: white;
+  border-color: #2196F3;
+}
+
 .help-section {
   background: white;
   border: 1px solid #e0e0e0;

@@ -63,6 +63,8 @@ chrome.commands.onCommand.addListener((command) => {
 });
 
 // Handle extension installation
-chrome.runtime.onInstalled.addListener(() => {
-  // Extension installed successfully - no debug output in production
+chrome.runtime.onInstalled.addListener((details) => {
+  // Extension installed successfully
+  // Note: Chrome has a known issue where keyboard shortcuts don't always register properly
+  // on first install. Users may need to manually reset them in chrome://extensions/shortcuts
 });

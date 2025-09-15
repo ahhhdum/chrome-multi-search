@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const navCounter = document.getElementById('navCounter');
   const helpToggle = document.getElementById('helpToggle');
   const helpSection = document.getElementById('helpSection');
+  const shortcutsConfig = document.getElementById('shortcutsConfig');
 
   // Store match data for navigation tracking
   let totalMatches = 0;
@@ -76,6 +77,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     helpToggle.textContent = helpVisible ? '×' : '?';
     helpToggle.title = helpVisible ? 'Close help' : 'How to use this';
+  });
+
+  // Handle shortcuts configuration button
+  shortcutsConfig.addEventListener('click', () => {
+    chrome.tabs.create({
+      url: 'chrome://extensions/shortcuts'
+    });
   });
 
   // Focus on textarea
