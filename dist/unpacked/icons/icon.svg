@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Green background -->
+  <rect width="128" height="128" fill="#4CAF50"/>
+
+  <!-- White "MS" text for Multi-Search -->
+  <text x="64" y="64" font-family="Arial, sans-serif" font-size="48" font-weight="bold"
+        fill="white" text-anchor="middle" dominant-baseline="middle">MS</text>
+
+  <!-- Small magnifying glass in corner -->
+  <g transform="translate(85, 85)">
+    <circle cx="0" cy="0" r="10" fill="none" stroke="white" stroke-width="3"/>
+    <line x1="7" y1="7" x2="15" y2="15" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>

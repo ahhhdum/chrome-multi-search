@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Search</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Multi-Search</h1>
+      <button id="helpToggle" class="help-toggle" title="How to use this">?</button>
+    </div>
+
+    <div id="helpSection" class="help-section" style="display: none;">
+      <h3>How to Use This Extension</h3>
+
+      <div class="help-content">
+        <div class="help-item">
+          <strong>Search Modes:</strong>
+          <ul>
+            <li><b>Text Only:</b> Search for text anywhere on the page</li>
+            <li><b>Links Aware:</b> Highlight entire links containing your text</li>
+            <li><b>URL IDs:</b> Find links by ID numbers in their URLs</li>
+          </ul>
+        </div>
+
+        <div class="help-item">
+          <strong>Keyboard Shortcuts:</strong>
+          <div class="help-note">⚠️ Close this popup first (click outside or press Esc)</div>
+          <ul>
+            <li><kbd>Tab</kbd> / <kbd>Shift+Tab</kbd> - Navigate between matches</li>
+            <li><kbd>Enter</kbd> - Click the highlighted link/button</li>
+            <li><kbd>Space</kbd> - Toggle checkbox in the same row</li>
+          </ul>
+        </div>
+
+        <div class="help-item">
+          <strong>Global Shortcuts:</strong>
+          <ul>
+            <li><kbd>Ctrl+Shift+F</kbd> - Open Multi-Search popup</li>
+            <li><kbd>Ctrl+Shift+S</kbd> - Show/hide highlights</li>
+            <li>Mac: Use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd></li>
+          </ul>
+        </div>
+
+        <div class="help-item">
+          <strong>Tips:</strong>
+          <ul>
+            <li>Enter multiple terms separated by commas or new lines</li>
+            <li>Each term gets a unique color (up to 8)</li>
+            <li>Your searches are saved for the session</li>
+            <li>Use URL IDs mode for finding items by their ID numbers</li>
+            <li>Customize shortcuts in chrome://extensions/shortcuts</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="searchTerms">Enter search terms (comma or newline separated):</label>
+      <textarea
+        id="searchTerms"
+        placeholder="term1, term2&#10;term3&#10;12345"
+        rows="5"
+        autofocus></textarea>
+    </div>
+
+    <div class="options">
+      <label class="checkbox-label">
+        <input type="checkbox" id="caseSensitive">
+        <span>Case sensitive</span>
+      </label>
+
+      <div class="search-mode-group">
+        <label for="searchMode">Search mode:</label>
+        <select id="searchMode" class="search-mode-select">
+          <option value="text">Text Only</option>
+          <option value="links">Links Aware</option>
+          <option value="url_ids">URL IDs</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button id="searchBtn" class="btn btn-primary">Search</button>
+      <button id="clearBtn" class="btn btn-secondary">Clear</button>
+    </div>
+
+    <div id="status" class="status"></div>
+    <div id="matchResults" class="match-results"></div>
+
+    <div id="navigationControls" class="navigation-controls" style="display: none;">
+      <div id="navCounter" class="nav-counter">Ready to navigate</div>
+      <div class="nav-info">Use Tab/Shift+Tab on page or:</div>
+      <div class="nav-buttons">
+        <button id="prevBtn" class="nav-btn" title="Previous match (Shift+Tab)">◀ Prev</button>
+        <button id="nextBtn" class="nav-btn" title="Next match (Tab)">Next ▶</button>
+      </div>
+      <div class="keyboard-hints">
+        <span class="hint">Tab = Navigate</span>
+        <span class="hint">Enter = Click</span>
+        <span class="hint">Space = Checkbox</span>
+      </div>
+      <div class="popup-note">💡 Close popup (Esc or click outside) to use keyboard shortcuts</div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
